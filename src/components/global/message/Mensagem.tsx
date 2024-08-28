@@ -26,10 +26,10 @@ export function MensagemProvider({ children }: any) {
 export default function Mensagem() {
 	const {message} = useMessage()
 
-	const [bgColor, setBgColor] = useState<string>(message.type === 'erro' ? 'bg-red-200' : message.type === 'sucesso' ? 'bg-green-200' : '')
+	const [bgColor, setBgColor] = useState<string>(message.type === 'erro' ? 'bg-red-200 bg-opacity-70' : message.type === 'sucesso' ? 'bg-green-200 bg-opacity-70' : '')
 
 	useEffect(() => {
-		setBgColor(message.type === 'erro' ? 'bg-red-200' : message.type === 'sucesso' ? 'bg-green-200' : '')
+		setBgColor(message.type === 'erro' ? 'bg-red-200 bg-opacity-70' : message.type === 'sucesso' ? 'bg-green-200 bg-opacity-70' : '')
 	}, [message])
 
 	if (!message.text)

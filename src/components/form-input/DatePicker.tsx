@@ -4,7 +4,7 @@ import { Calendar as CalendarIcon } from "lucide-react"
 import { ptBR } from "date-fns/locale"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import {
 	Popover,
@@ -12,6 +12,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover"
 import { Label } from "../ui/label"
+import { useTheme } from "@/Providers/ThemeProvider"
 
 interface DatePicker {
 	date?: Date
@@ -60,7 +61,15 @@ export function DatePicker({
 				<PopoverContent className="w-auto p-0">
 					<Calendar
 						locale={ptBR}
-						className="bg-white"
+						className={`${useTheme().theme == 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}
+						classNames={{
+							day: cn(
+								buttonVariants({ variant: "ghost" }),
+								useTheme().theme == 'light' ?
+									"bg-zinc-300 h-9 w-9 p-0 font-normal aria-selected:opacity-100" :
+									"bg-zinc-800 h-9 w-9 p-0 font-normal aria-selected:opacity-100"
+							)
+						}}
 						disabled={disabled}
 						required={required}
 						mode="single"

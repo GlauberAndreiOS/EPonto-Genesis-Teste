@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/select"
 import { useState } from "react";
 import { Label } from "../ui/label";
+import { useTheme } from "@/Providers/ThemeProvider";
 
 interface SelectInputProps {
 	value: string;
@@ -32,7 +33,7 @@ export default function SelectInput({ value, id, label, className, onChange, opt
 				<SelectTrigger id={selectInputId} className={`border border-gray-300 rounded ${className}`}>
 					<SelectValue placeholder={label} />
 				</SelectTrigger>
-				<SelectContent className="bg-white">
+				<SelectContent className={`${useTheme().theme == 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}>
 					{options.map((option, index) => (
 						<SelectItem value={option} key={index}>
 							{option}

@@ -13,7 +13,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table"
-import FormInput from "../form-input/FormInput"
+import FormInputForDatatable from "./FormInputForDatatable"
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
@@ -60,7 +60,7 @@ export function DataTable<TData, TValue>({
 							>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell key={cell.id} className={`${cell.id.replace(/^\d+/, '') == '_data' ? 'bg-[#1262B3] text-white w-48' : ''} border`}>
-										<FormInput value={cell.getValue()} id={cell.id} key={cell.id} className="border-none h-full w-full p-0" />
+										<FormInputForDatatable value={cell.getValue()} id={cell.id} key={cell.id} className="border-none h-full w-full p-0" />
 									</TableCell>
 								))}
 							</TableRow>

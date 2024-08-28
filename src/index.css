@@ -19,6 +19,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a:hover {
+  color: #1262b3;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -47,32 +51,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f9f9f9;
+.dark {
+  #root {
+    color: #ffffff;
     background-color: #121212;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #1a1a1a;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
+.light {
+  #root {
+    color: black;
     background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
   }
 }
