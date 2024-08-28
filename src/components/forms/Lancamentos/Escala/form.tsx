@@ -73,12 +73,11 @@ function PageForm() {
 
 	const { setMessage } = useMessage()
 
-	function handleGerarEscala({ dataInicial, dataFinal, horarioInicial, descricao, tipoEscala }:
+	function handleGerarEscala({ dataInicial, dataFinal, horarioInicial, tipoEscala }:
 		{
 			dataInicial: Date | undefined,
 			dataFinal: Date | undefined,
 			horarioInicial: string,
-			descricao: string,
 			tipoEscala: string
 		}) {
 		api.post('/gerar-escala', {
@@ -133,7 +132,7 @@ function PageForm() {
 				</div>
 			</div>
 			<div className='flex-row mx-[34px] py-4'>
-				<button className='bg-[#1262B3] text-white rounded' onClick={() => handleGerarEscala({ dataInicial, dataFinal, horarioInicial, descricao, tipoEscala: tipoDeEscalaFinal })}>Gerar Escala</button>
+				<button className='bg-[#1262B3] text-white rounded' onClick={() => handleGerarEscala({ dataInicial, dataFinal, horarioInicial, tipoEscala: tipoDeEscalaFinal })}>Gerar Escala</button>
 			</div>
 			<div className='flex-row mx-[34px] py-4'>
 				<DataTable columns={datatableColumns} data={Object.values(datatable)} />

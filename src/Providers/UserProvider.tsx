@@ -17,7 +17,5 @@ export function useUserContext() {
 		throw new Error('Usuário não encontrado')
 	}
 
-	const user = response.data as User
-
-	return user;
+	return response.data as User;
 }

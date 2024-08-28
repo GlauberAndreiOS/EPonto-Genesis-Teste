@@ -21,6 +21,9 @@ export default function FormInputForDatatable({ value, id, className, onChange }
 		} else {
 			setInputValue(value)
 		}
+
+		if (onChange)
+			onChange(value);
 	}
 
 	return (
